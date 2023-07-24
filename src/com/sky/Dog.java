@@ -6,15 +6,19 @@ public class Dog extends Mammal{
     }
 
     public Dog(int height, int age) {
-        this(height, 10, age);
+        this(height, 4, age);
     }
 
     public Dog(int age){
-        this(10,age);
+        this(5,age);
     }
 
     public Dog(){
-        this (10);
+        this (6);
+    }
+
+    public Dog OldDog(){
+        return new Dog(100);
     }
 
     public void Bark(){
