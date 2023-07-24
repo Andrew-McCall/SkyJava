@@ -2,10 +2,24 @@ package com.sky;
 
 import java.util.Objects;
 
-public class Animal {
+public abstract class Animal {
     private int Height;
     private int Weight;
     private int Age;
+
+    private Coordinate Location = new Coordinate();
+
+    public Coordinate getLocation(){
+        return Location;
+    }
+
+    // Encapsulation
+    // Public is accessable anywhere
+    // Private is accessable only in the same class
+    // Protected is accessable only in the same class OR children
+    protected void setLocation(Coordinate location){
+        Location = location;
+    }
 
     // Public ClassName ClassName(inputs){}
     // Public ClassName(inputs){}

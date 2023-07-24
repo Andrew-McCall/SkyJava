@@ -3,61 +3,35 @@ package com.sky;
 public class Main {
     public static void main(String[] args){
 
-        Animal cow = new Animal(10,20,03);
-        Animal cat = new Animal(10,20,03);
+        // OOP Principles
+        // Abstraction    - When a Dog is saved as an Animal
+        // Polymorphism   - "@Override"
+        // Encapsulation  - Private vs Public (Protected)
+        // Inheritance    - "Extends" Keyword
 
-        System.out.println(cow.getAge());
-        cow.setAge(10);
+        // Abstraction Example
+        Animal joe = new Owl();
 
-        System.out.println(cow.getAge());
-        System.out.println(cat.getAge());
+        joe.Eat(5);
+//        joe.fly();
+//        joe.Hoot;
 
-        cat.Eat(99);
-        System.out.println(cat.getWeight());
-
-        System.out.println(cat.toString());
-        System.out.println(cow.toString());
-
-        // Calls the inbuilt secret Object method toString
-        Object cowAsObject = (Object) cow;
-        Object anObject = new Object();
-        System.out.println(anObject);
-
-        System.out.println(cow);
-
-        // even though this is an object. Its still storing the properites of cow
-        // AND the behaviours such as the custom toString
-        System.out.println(cowAsObject);
-
-        Dog doug = new Dog();
-        doug.setAge(100);
-        doug.Eat(4);
-        System.out.println("Dog! "+ doug.toString());
-
-        doug.Bark();
-
-        Animal dogAsAnimal = new Dog(); // Instance is what controls the behaviour
-        dogAsAnimal.setAge(21);
-        dogAsAnimal.Eat(200);
-
-//        dogAsAnimal.getBreed();
-//        dogAsAnimal.Bark();
-
-        System.out.println(dogAsAnimal);
-        if (dogAsAnimal instanceof Dog) {
-//            ((Dog) dogAsAnimal).Bark();
-
-            Dog dogAsDog = (Dog) dogAsAnimal;
-            dogAsDog.Bark();
-            dogAsDog.setBreed("Collie");
-            System.out.println(dogAsDog.getBreed());
+        if (joe instanceof Owl){
+            Owl joeAsOwl = (Owl) joe;
+            joeAsOwl.Hoot();
+            joeAsOwl.Fly();
         }
 
-        Animal breededDog = new Dog("Fluffy");
-        System.out.println(((Dog) breededDog).getBreed());
+        // Mammal James = new Mammal(...) // CANNOT DO SINCE Mammal IS ABSTRACT
+        Mammal james = new Dog(10,10,10);
 
-        Dog completeDog = new Dog("Fluffy", 10, 20, 30);
-        System.out.println(((Dog) completeDog).getBreed());
-        System.out.println(completeDog);
+        james.Walk(10,10);
+        james.Walk(-3,-5);
+        james.Walk(53,19);
+
+//      Abstract classes cannot be INSTANTIATED
+//      Animal example = new Animal();
+
+
     }
 }
