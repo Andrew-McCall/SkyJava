@@ -3,31 +3,61 @@ package com.sky;
 public class Main {
     public static void main(String[] args){
 
-        Food orange = new Food();
-        Food apple = new Food();
-//
-//        orange.Calories = 100;
-//        apple.Calories = 50;
-//
-//        System.out.println(orange.Calories);
-//        System.out.println(apple.Calories);
+        Animal cow = new Animal(10,20,03);
+        Animal cat = new Animal(10,20,03);
 
-        apple.setCalories(-59025);
-        System.out.println(apple.getCalories());
+        System.out.println(cow.getAge());
+        cow.setAge(10);
 
-        orange.setCalories(100);
-        apple.setCalories(50);
+        System.out.println(cow.getAge());
+        System.out.println(cat.getAge());
 
-        System.out.println(orange.getCalories());
-        System.out.println(apple.getCalories());
+        cat.Eat(99);
+        System.out.println(cat.getWeight());
 
-        apple.AddSugar(15);
+        System.out.println(cat.toString());
+        System.out.println(cow.toString());
 
-        System.out.println(apple.Consume());
-        System.out.println(orange.Consume());
+        // Calls the inbuilt secret Object method toString
+        Object cowAsObject = (Object) cow;
+        Object anObject = new Object();
+        System.out.println(anObject);
 
-        System.out.println(orange);
-        System.out.println(apple);
+        System.out.println(cow);
 
+        // even though this is an object. Its still storing the properites of cow
+        // AND the behaviours such as the custom toString
+        System.out.println(cowAsObject);
+
+        Dog doug = new Dog();
+        doug.setAge(100);
+        doug.Eat(4);
+        System.out.println("Dog! "+ doug.toString());
+
+        doug.Bark();
+
+        Animal dogAsAnimal = new Dog(); // Instance is what controls the behaviour
+        dogAsAnimal.setAge(21);
+        dogAsAnimal.Eat(200);
+
+//        dogAsAnimal.getBreed();
+//        dogAsAnimal.Bark();
+
+        System.out.println(dogAsAnimal);
+        if (dogAsAnimal instanceof Dog) {
+//            ((Dog) dogAsAnimal).Bark();
+
+            Dog dogAsDog = (Dog) dogAsAnimal;
+            dogAsDog.Bark();
+            dogAsDog.setBreed("Collie");
+            System.out.println(dogAsDog.getBreed());
+        }
+
+        Animal breededDog = new Dog("Fluffy");
+        System.out.println(((Dog) breededDog).getBreed());
+
+        Dog completeDog = new Dog("Fluffy", 10, 20, 30);
+        System.out.println(((Dog) completeDog).getBreed());
+        System.out.println(completeDog);
     }
 }
