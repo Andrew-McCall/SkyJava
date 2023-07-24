@@ -9,6 +9,8 @@ public abstract class Animal {
 
     private Coordinate Location = new Coordinate();
 
+//    public abstract void Annoying();
+
     public Coordinate getLocation(){
         return Location;
     }

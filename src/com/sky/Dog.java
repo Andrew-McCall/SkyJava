@@ -1,6 +1,7 @@
 package com.sky;
 
-public class Dog extends Mammal{
+// Only ever one SuperClass (Parent) - Multiple Interfaces
+public class Dog extends Mammal implements ITame, ILarge {
     public Dog(int height, int weight, int age) {
         super(height, weight, age, false);
     }
@@ -24,4 +25,21 @@ public class Dog extends Mammal{
     public void Bark(){
         System.out.println("Woof!");
     }
+
+    @Override
+    public void Feed() {
+        System.out.println("Snack");
+    }
+
+    @Override
+    public void Pet() {
+        System.out.println("Belly Rub");
+    }
+
+
+    @Override
+    public void Ride() {
+        System.out.println("Oww!");
+    }
+
 }
