@@ -3,74 +3,57 @@ package com.sky;
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
+        /// Vehicle Class
+        // Car Class
+        // Boat Class
+        // AirPlane Class
 
-        // OOP Principles
-        // Abstraction    - When a Dog is saved as an Animal
-        // Polymorphism   - "@Override"
-        // Encapsulation  - Private vs Public (Protected)
-        // Inheritance    - "Extends" Keyword
+        // Make an instantiatable class for each.
 
-        // Abstraction Example
-        Animal joe = new Owl();
+        // Make a garage class
+        // With at least 3 variables
+        // At least 1 of the variables should be for a more specific class than Vehicle
+        // (Abstraction)
 
-        joe.Eat(5);
-//        joe.fly();
-//        joe.Hoot;
+        // Setters and Getters for each
+        // ToString
 
-        if (joe instanceof Owl){
-            Owl joeAsOwl = (Owl) joe;
-            joeAsOwl.Hoot();
-            joeAsOwl.Fly();
-        }
+        // public int StoreVehicle(Vehicle v);
+        // Write a function which will check the variables for you and change the correct one
+        // (if statements)
 
-        // Mammal James = new Mammal(...) // CANNOT DO SINCE Mammal IS ABSTRACT
-        Mammal james = new Dog(10,10,10);
+        // Write a function which calculates the total cost of the garage vehicles
 
-        james.Walk(10,10);
-        james.Walk(-3,-5);
-        james.Walk(53,19);
+        Car CarOne = new Micra();
+        Vehicle CarTwo = new Lamborghini();
+        Trawler BoatOne = new Trawler();
 
-//      Abstract classes cannot be INSTANTIATED
-//      Animal example = new Animal();
+        System.out.println(CarOne);
+        System.out.println(CarTwo);
+        System.out.println(BoatOne);
 
-        PetOwl Hedwig = new PetOwl();
-        Hedwig.Pet();
+        Garage g = new Garage();
+        System.out.println(g);
 
-        // Abstraction.
-        // I can treat any of my classes and an animal.
-        // Because tehy are all chilrden of animal
-        ArrayList<Animal> zoo = new ArrayList();
-        zoo.add(Hedwig); // Pet Owl
-        zoo.add(new Owl());
-        zoo.add(james);  // Dog
+//        g.setSlot1(BoatOne);
+//        g.setSlot2((Car) CarTwo); // CarTwo is a Vehicle... which is not enough infomation
+//        g.setSlot3(BoatOne);      // BoatOne is a Trawler WHICH IS A BOAT
+//
+//        System.out.println(g);
+        int StoredSlot = g.StoreVehicle(CarOne);
+        System.out.println(StoredSlot);
+        System.out.println(g);
 
-        // Abstraction.
-        // I can treat any of my classes and an animal.
-        // Because tehy are all chilrden of animal
-        ArrayList<ITame> pets = new ArrayList();
-        pets.add(Hedwig); // Pet Owl
-        // OWL is not ITame
-//        pets.add(new Owl());
-        // James is a Mammal. which is not Tamed
-//        pets.add(james);  // Dog
-        pets.add((ITame) james);
+        int StoredSlotAgain = g.StoreVehicle(BoatOne);
+        System.out.println(StoredSlotAgain);
+        System.out.println(g);
 
-        ((ITame) james).DONTDOTHIS();
+        int StoredSlotAgainAgain = g.StoreVehicle(BoatOne);
+        System.out.println(StoredSlotAgainAgain);
+        System.out.println(g);
 
-        // Builder Pattern
-        Cow dasiy = new CowBuilder().AddAge(10).AddHeight(54).AddWeight(52).AddIsPrimate(false).Build();
-        Cow dasiy2 = new CowBuilder().AddAge(10).AddHeight(54).AddWeightKg(14).AddIsPrimate(false).Build();
-
-        CowBuilder lotsofsteps = new CowBuilder();
-        lotsofsteps.AddAge(523);
-        // other logic
-        lotsofsteps.AddHeight(56356);
-        // other logic
-        Cow two = lotsofsteps.Build();
-
-        System.out.println(dasiy);
-        System.out.println(dasiy2);
-
+        System.out.println(g.TotalWorth());
     }
+
 }

@@ -1,6 +1,7 @@
 package com.sky;
 
 public class Coordinate {
+
     public double X;
     public double Y;
     public double Z;
@@ -9,7 +10,7 @@ public class Coordinate {
 
     }
 
-    public Coordinate(double x, double y, double z){
+    public Coordinate(double x, double y, double z) {
         X = x;
         Y = y;
         Z = z;
@@ -17,10 +18,9 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return "Coordinate[" +
-                "X=" + X +
-                ", Y=" + Y +
-                ", Z=" + Z +
-                ']';
+        return "(" + X +
+                ", " + Y +
+                ", " + Z +
+                ')';
     }
 }
