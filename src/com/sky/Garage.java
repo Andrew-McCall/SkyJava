@@ -2,73 +2,70 @@ package com.sky;
 
 public class Garage {
 
-    private Vehicle Slot1; // null
-    private Car Slot2; // null
-    private Ship Slot3; // null
+    private Vehicle[] spaces = new Vehicle[4];
 
     public int StoreVehicle(Vehicle v){
-        if (Slot1 == null){
-            Slot1 = v;
-            return 1;
+        int currentSpace = FindVehicle(v); // Check if vehicle is already stored
+        if (currentSpace == -1) {
+            for (int i = 0; i < spaces.length; i++) {
+                if (spaces[i] == null) { // Find first empty space
+                    spaces[i] = v;
+                    return i;
+                }
+            }
+        }else{
+            return currentSpace;
         }
+        return -1;
+    }
 
-        if (Slot2 == null && v instanceof Car){
-            Slot2 = (Car) v;
-            return 2;
+    public Vehicle RemoveVehicle(int index){
+        if (index < 0 || index >= spaces.length) return null;
+        Vehicle v = spaces[index];
+        spaces[index] = null;
+        return v;
+    }
+
+    // Uses interface
+    public void Maintain(){
+        for (Vehicle v: spaces){
+            if (v instanceof IRadioable){
+                ((IRadioable) v).BroadCase("Test");
+            }
+            if (v instanceof Car){
+                Car vAsCar = (Car) v;
+                vAsCar.Drive(100);
+                vAsCar.Drive(-100);
+            }
         }
+    }
 
-        if (Slot3 == null && v instanceof Ship){
-            Slot3 = (Ship) v;
-            return 3;
+    // == Checks memory
+    // .equals checks inside - object
+    public int FindVehicle(Vehicle v){
+        for (int i = 0; i < spaces.length; i++) {
+            if (spaces[i] == v){
+                return i;
+            }
         }
-
         return -1;
     }
 
     public int TotalWorth(){
         int currentSum = 0;
-        if (Slot1 != null){
-            currentSum += Slot1.getWorth();
+
+        for (Vehicle v: spaces){
+            if (v != null){
+                currentSum += v.getWorth();
+            }
         }
-        if (Slot2 != null){
-            currentSum += Slot2.getWorth();
-        }
-        if (Slot3 != null){
-            currentSum += Slot3.getWorth();
-        }
+
         return currentSum;
     }
 
-    public Vehicle getSlot1() {
-        return Slot1;
+    public Vehicle[] getSpaces() {
+        return spaces;
     }
 
-    public void setSlot1(Vehicle slot1) {
-        Slot1 = slot1;
-    }
 
-    public Car getSlot2() {
-        return Slot2;
-    }
-
-    public void setSlot2(Car slot2) {
-        Slot2 = slot2;
-    }
-
-    public Ship getSlot3() {
-        return Slot3;
-    }
-
-    public void setSlot3(Ship slot3) {
-        Slot3 = slot3;
-    }
-
-    @Override
-    public String toString() {
-        return "Garage{" +
-                "Slot1=" + Slot1 +
-                ", Slot2=" + Slot2 +
-                ", Slot3=" + Slot3 +
-                '}';
-    }
 }

@@ -1,5 +1,7 @@
 package com.sky;
 
+import java.util.Objects;
+
 public abstract class Vehicle extends Object {
 
     private int Seats;
@@ -39,6 +41,11 @@ public abstract class Vehicle extends Object {
 
     public int getWorth() {
         return Worth;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSeats(), getWorth(), getManufacturer(), getPosition());
     }
 
     public String getManufacturer() {
