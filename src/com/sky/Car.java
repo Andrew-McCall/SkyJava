@@ -1,47 +1,45 @@
 package com.sky;
 
-public abstract class Car extends Vehicle{
+public class Car {
+
+    private static long GlobalCounter = 0;
+    private String Colour;
+    private long VIM;
+
+    public static long GetGlobalCounter(){
+        return GlobalCounter;
+    }
+
+    public static void SetGlobalCounter(long newNumber){
+        GlobalCounter = newNumber;
+    }
+
+    public Car(String colour){
+        this.Colour = colour;
+        this.VIM = GlobalCounter++;
+    }
+
+    public String getColour() {
+        return Colour;
+    }
+
+    public void setColour(String colour) {
+        Colour = colour;
+    }
+
+    public long getVIM() {
+        return VIM;
+    }
+
+    protected void setVIM(long VIM) {
+        this.VIM = VIM;
+    }
 
     @Override
     public String toString() {
-        return "Car{" +
-                "Wheels=" + Wheels +
-                ", Doors=" + Doors +
-                ", LicensePlate='" + LicensePlate + '\'' +
-                '}' + super.toString();
-    }
-
-    private int Wheels;
-    private int Doors;
-    private String LicensePlate;
-
-    public void Drive(double x){
-        Coordinate oldPosition = getPosition();
-        Coordinate newPosition = new Coordinate(oldPosition.X + x, oldPosition.Y, oldPosition.Z);
-        super.setPosition(newPosition);
-    }
-
-    public int getWheels() {
-        return Wheels;
-    }
-
-    public void setWheels(int wheels) {
-        Wheels = wheels;
-    }
-
-    public int getDoors() {
-        return Doors;
-    }
-
-    public void setDoors(int doors) {
-        Doors = doors;
-    }
-
-    public String getLicensePlate() {
-        return LicensePlate;
-    }
-
-    public void setLicensePlate(String licensePlate) {
-        LicensePlate = licensePlate;
+        return "{" +
+                "C='" + Colour + '\'' +
+                ", V=" + VIM +
+                '}';
     }
 }
