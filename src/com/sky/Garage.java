@@ -1,29 +1,25 @@
 package com.sky;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Garage {
 
-    private Vehicle[] spaces = new Vehicle[4];
+    private List<Vehicle> spaces = new ArrayList<Vehicle>();
 
     public int StoreVehicle(Vehicle v){
         int currentSpace = FindVehicle(v); // Check if vehicle is already stored
         if (currentSpace == -1) {
-            for (int i = 0; i < spaces.length; i++) {
-                if (spaces[i] == null) { // Find first empty space
-                    spaces[i] = v;
-                    return i;
-                }
-            }
+            spaces.add(v);
+            return spaces.size() - 1; // Returns last element
         }else{
             return currentSpace;
         }
-        return -1;
     }
 
     public Vehicle RemoveVehicle(int index){
-        if (index < 0 || index >= spaces.length) return null;
-        Vehicle v = spaces[index];
-        spaces[index] = null;
-        return v;
+        if (index < 0 || index >= spaces.size()) return null;
+        return spaces.remove(index);
     }
 
     // Uses interface
@@ -43,12 +39,7 @@ public class Garage {
     // == Checks memory
     // .equals checks inside - object
     public int FindVehicle(Vehicle v){
-        for (int i = 0; i < spaces.length; i++) {
-            if (spaces[i] == v){
-                return i;
-            }
-        }
-        return -1;
+        return spaces.indexOf(v);
     }
 
     public int TotalWorth(){
@@ -63,7 +54,7 @@ public class Garage {
         return currentSum;
     }
 
-    public Vehicle[] getSpaces() {
+    public List<Vehicle> getSpaces() {
         return spaces;
     }
 

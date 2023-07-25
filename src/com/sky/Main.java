@@ -5,32 +5,18 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        // Update Garage to use Arrays
-        // Garage size of 5 or whatever you'd like
-        // Function which loops through and prints them all (foreach)
-
-        // Ext:
-        // Check there's no vehicle duplicates in the garage
-
-        Garage g = new Garage();
-        System.out.println("£"+ g.TotalWorth());
-
         Car c = new Micra();
+        ParkingSpace<Vehicle> space = new VehicleStore();
 
-        System.out.println(g.StoreVehicle(c));                 // 0
-        System.out.println(g.StoreVehicle(new Trawler()));     // 1
-        System.out.println(g.StoreVehicle(new Lamborghini())); // 2
-        System.out.println(g.StoreVehicle(c));                 // 0
-        System.out.println(g.StoreVehicle(new Lamborghini())); // 3
-        System.out.println(g.StoreVehicle(new Lamborghini())); // -1
+        space.Park(c);
+        System.out.println(space.Take()); // Micra
+        System.out.println(space.Take()); // Null
 
-        System.out.println(g);
-
-        System.out.println("£"+ g.TotalWorth());
-
-        System.out.println(g.RemoveVehicle(0));
-
-        System.out.println("£"+ g.TotalWorth());
+        ParkingSpace<Ship> dock = new GenericStore<Ship>();
+        dock.Park(new Trawler());
+//        dock.Park(new Micra()); - Not a ship
+        System.out.println(dock.Take()); // Trawler
+        System.out.println(dock.Take()); // Null
 
     }
 
