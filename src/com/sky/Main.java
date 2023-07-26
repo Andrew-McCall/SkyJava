@@ -13,6 +13,22 @@ public class Main {
 
 //        throw new Exception();
 
+        // Person Object
+        // Static Method - public Person PersonForm() - Scanner with inputs
+        // Ext: 2Player Rock paper scissors
+
+        // A person Object must include
+        // Job Enum, age, name
+        // Checks for vaild inputs
+        // STATIC
+
+        // Ext: If the input is invaild, Messge why - Not to reset progress.
+
+//        Person p = Person.PersonCreator(); // static
+
+//        Person p = new Person();           // instance
+//        p.setup()
+
         int b = 19;
 
         Scanner sc = new Scanner(System.in);
