@@ -4,25 +4,48 @@ import java.util.Arrays;
 import java.util.ArrayList;
 
 public class Main {
+
+    private static final String DB_URL = "Hello World!";
+
     public static void main(String[] args) {
-        ARDictionary.HelloWorld();
+//        Store<String> word = new Store();
+//
+//        System.out.println(word.getStore());
+//        word.setStore("hehje");
+//        System.out.println(word.getStore());
+//
+//        System.out.println(DB_URL);
+////        DB_URL = "no"; // Cant be changed
+//        // Read Only
+//
+//        Store<Day> today = new Store();
+//        today.setStore(Day.Friday);
+//
+//        System.out.println(today.getStore());
+//        System.out.println(Day.GetToday());
+//        System.out.println(Day.Friday.getMOTD());
+//
+//        System.out.println(Drink_Size.MEDIUM);
+//        System.out.println(Drink_Size.MEDIUM.pricePer100Ml());
+//        System.out.println(Drink_Size.MEDIUM.pricePer100Ml());
+//
+//        Drink_Size drink = Drink_Size.MEDIUM;
+//        System.out.println(drink.getPrice())
 
-        Car.SetGlobalCounter(987256);
-        Car c1 = new Car("Black");
-        Car c2 = new Car("Pink");
-        System.out.println(Car.GetGlobalCounter());
-        Car c3 = new Car("White");
-        System.out.println(Car.GetGlobalCounter());
-        Car c4 = new Car("Yellow");
-        Car c5 = new Car("Red");
+            // Job Enum
+            // Salary and Hours per Week
+            // CalculateHourlyPay Method
+            // Raise Method. Increases Salary by 1%
+            // Switch through them - make something up
 
-        System.out.println(c1);
-        System.out.println(c2);
-        System.out.println(c3);
-        System.out.println(c4);
-        System.out.println(c5);
+        // Enums
+        // Exceptions - Try and Catch
+        // Lambdas
+        // Inputs
+        // EOD Task
 
-        System.out.println(Util.add(145921,5123582));
+        // THURSDAY - Maven Junit
+
     }
 
 }
