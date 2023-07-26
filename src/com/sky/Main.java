@@ -1,73 +1,43 @@
 package com.sky;
 
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
-    private static final String DB_URL = "Hello World!";
-
-    public static void main(String[] args) {
-        Store<String> word = new Store();
-
-        System.out.println(word.getStore());
-        word.setStore("hehje");
-        System.out.println(word.getStore());
-
-        System.out.println(DB_URL);
-//        DB_URL = "no"; // Cant be changed
-        // Read Only
-
-        Store<Day> today = new Store();
-        today.setStore(Day.Friday);
-
-        // Job Enum
-        // Salary and Hours per Week
-        // CalculateHourlyPay Method
-        // Raise Method. Increases Salary by 1%
-        // Switch through them - make something up
-
-        // Enums
-        // Exceptions - Try and Catch
+    public static void main(String[] args) throws Exception {
+        // Enums*
+        // Inputs*
+        // Exceptions - Try and Catch*
         // Lambdas
-        // Inputs
         // EOD Task
 
-        Job job = Job.SoftwareTester;
-        System.out.println(job);
-        System.out.println(job.getSalary());
-        System.out.println(job.getWeeklyHours());
-        System.out.println(job.getHourlyRate());
+//        throw new Exception();
 
-        job.Raise();
-        System.out.println(job.getHourlyRate());
-        job.Raise(10);
-        System.out.println(job.getHourlyRate());
+        int b = 19;
 
-        switch (job){
-            case Janitor:
-                job = Job.SoftwareTester;
-                break;
-            case SoftwareTester:
-                job = Job.Developer;
-                break;
-            case Developer:
-                job = Job.CEO;
-                break;
-            case CEO:
-                job = Job.Janitor;
-                break;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number");
+        try {
+            int a = sc.nextInt();
+
+            // %d integer
+            // %s String
+            // %f decimal number, float
+            // String.format("template", inputs)
+            System.out.println(String.format("%d / %d = %f", b , a, ((double) b) / a));
+            int check = b/a;
+
+        } catch (ArithmeticException e){
+            System.out.println("Arthimetic Error");
+
+        } catch (Exception e){
+            System.out.println("Execption");
+
+        } finally {
+            System.out.println("Always Run");
+
         }
 
-        System.out.println(job);
-        System.out.println(job.getSalary());
-        System.out.println(job.getWeeklyHours());
-        System.out.println(job.getHourlyRate());
-
-        job.Raise();
-        System.out.println(job.getHourlyRate());
-        job.Raise(10);
-        System.out.println(job.getHourlyRate());
 
     }
 
