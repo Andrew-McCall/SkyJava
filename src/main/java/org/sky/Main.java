@@ -3,31 +3,28 @@ package org.sky;
 public class Main {
 
     public static void main(String[] args) {
-        Calculator c = new Calculator();
 
-        double a = 36;
-        double b = 3;
+        ClassList myClass = new ClassList();
 
-        System.out.println(c.Addition(a,b));
-        System.out.println(c.Subtraction(a,b));
-        System.out.println(c.Multiplication(a,b));
-        System.out.println(c.Division(a,b));
+        myClass.addStudent(new Student("David", 49, 61));
+        myClass.addStudent(new Student("Andrew", 99, 21));
+        myClass.addStudent(new Student("McCall", 89, 23));
+        myClass.addStudent(new Student("Jon", 100, 16));
 
-        // Maven Project
-        // Add junit4 to dep
-        /// Create a method, returns the n'th number of the Fibonacci sequence
-        // public int Fibonacci(3) = 1              0 1 1 2 3 5 8 13 21
-        // Ext: Create a recursive version. No whiles or fors, the loop is via self calling the method
 
-        // Create a test suite for your method
+        System.out.println("Function: myClass.getStudents()");
+        myClass.getStudents().forEach(s -> System.out.println(s));
 
-        /// Convert a number to binary.
-        // public String DenaryToBinary(5) 0101
-        // Ext: Allow any size of number
+        System.out.println("Function: myClass.getPassedStudents()");
+        myClass.getPassedStudents(90).forEach(s -> System.out.println(s));
 
-        // Create test suite for this
-        // at least 5 test methods for each class you create
-        // Use parameters in your test class
+        System.out.println(String.format("Count: %d", myClass.getCount()));
+
+        System.out.println("Function: myClass.getAgeSortedStudents()");
+        myClass.getAgeSortedStudents().forEach(s -> System.out.println(s));
+
+        System.out.println("Function: myClass.getNameSortedAdultsStudents()");
+        myClass.getNameSortedAdultsStudents().forEach(s -> System.out.println(s));
     }
 
 }
