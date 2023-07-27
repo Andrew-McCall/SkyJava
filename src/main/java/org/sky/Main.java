@@ -21,10 +21,11 @@ public class Main {
         System.out.println(String.format("Count: %d", myClass.getCount()));
 
         System.out.println("Function: myClass.getAgeSortedStudents()");
-        myClass.getAgeSortedStudents().forEach(s -> System.out.println(s));
+        myClass.getAgeSortedStudents().forEach(System.out::println);
 
         System.out.println("Function: myClass.getNameSortedAdultsStudents()");
-        myClass.getNameSortedAdultsStudents().forEach(s -> System.out.println(s));
+        myClass.getNameSortedAdultsStudents().forEach(System.out::println);
+
     }
 
 }
